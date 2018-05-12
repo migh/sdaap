@@ -8,8 +8,28 @@
         <clr-icon shape="airplane"></clr-icon>Super Duper Awesome Airport Panel
       </a>
     </div>
-    <div class="header-nav"></div>
-    <div class="header-actions"></div>
+    <div class="header-nav">
+      <a class="nav-link" routerLink="/signup" *ngIf="!isAuth">
+        <span class="nav-text">Signup</span>
+      </a>
+      <a class="nav-link" routerLink="/login" *ngIf="!isAuth">
+        <span class="nav-text">Login</span>
+      </a>
+      <a class="nav-link" routerLink="/my" *ngIf="isAuth">
+        <span class="nav-text">My App</span>
+      </a>
+      <a class="nav-link" routerLink="/app">
+        <span class="nav-text">PWA</span>
+      </a>
+      <a class="nav-link" routerLink="/bigscreen">
+        <span class="nav-text">Big Screen</span>
+      </a>
+    </div>
+    <div class="header-actions">
+      <a class="nav-link" (click)="onLogout()" *ngIf="isAuth">
+        <span class="nav-text">Logout</span>
+      </a>
+    </div>
   </div>
   <div class="content-container">
     <div class="content-area">
