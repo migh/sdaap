@@ -1,3 +1,21 @@
-<p>
-  flights-list works!
-</p>
+<div class="flights-list">
+  <clr-datagrid>
+    <clr-dg-column>#</clr-dg-column>
+    <clr-dg-column>Destination</clr-dg-column>
+    <clr-dg-column>Carrier</clr-dg-column>
+    <clr-dg-column>Flight</clr-dg-column>
+    <clr-dg-column>Time</clr-dg-column>
+    <clr-dg-column>Gate</clr-dg-column>
+    <clr-dg-column>Status</clr-dg-column>
+
+    <clr-dg-row *ngFor="let flight of source; index as i">
+      <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.location }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.carrier }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.flight }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.time }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.gate }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.status }}</clr-dg-cell>
+    </clr-dg-row>
+  </clr-datagrid>
+</div>

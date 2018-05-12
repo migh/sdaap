@@ -1,4 +1,8 @@
-<p>
-  bigscreen works!
-  <app-flights-list></app-flights-list>
-</p>
+<div id="bigscreen" class="row">
+  <div class="col-md-6">
+    <app-flights-list [source]="arrivals"></app-flights-list>
+  </div>
+  <div class="col-md-6">
+    <app-flights-list [source]="departures"></app-flights-list>
+  </div>
+</div>

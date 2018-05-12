@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+
+import { Flight, FligthStatus } from '../flight';
 
 @Component({
   selector: 'app-flights-list',
@@ -6,10 +8,14 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./flights-list.component.scss']
 })
 export class FlightsListComponent implements OnInit {
+  @Input() source: Flight[];
 
   constructor() { }
 
   ngOnInit() {
+    const fieldIds = Object.keys(Flight.fieldNames);
+    const fieldNames = fieldIds.map( id => Flight.fieldNames[id] );
+    const source = this.source;
   }
 
 }

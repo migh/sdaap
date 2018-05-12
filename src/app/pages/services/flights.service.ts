@@ -1,5 +1,19 @@
 import { Injectable } from '@angular/core';
 
+import { Flight, FligthStatus, Direction } from '../../commons/flight';
+
+const flights: Flight[] = [
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ONTIME,
+    direction: Direction.ARRIVALS
+  }
+];
+
 @Injectable({
   providedIn: 'root'
 })
@@ -7,11 +21,15 @@ export class FlightsService {
 
   constructor() { }
 
-  getArrivals() {
-
+  test() {
+    return 'Testing';
   }
 
-  getDepartures() {
-    
+  getArrivals(): Flight[] {
+    return flights;
+  }
+
+  getDepartures(): Flight[] {
+    return flights;
   }
 }
