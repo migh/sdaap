@@ -12,7 +12,8 @@ const neutral = [FligthStatus.ATGATE, FligthStatus.INRANGE];
   styleUrls: ['./label.component.scss']
 })
 export class LabelComponent implements OnInit {
-  @Input() status: string;
+  @Input() status: FligthStatus;
+  sentiment: string;
 
   constructor() {}
 
