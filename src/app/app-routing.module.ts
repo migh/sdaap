@@ -4,12 +4,16 @@ import { Routes, RouterModule } from '@angular/router';
 import { BigscreenComponent } from './pages/bigscreen/bigscreen.component';
 import { PwaComponent } from './pages/pwa/pwa.component';
 import { MyFlightComponent } from './pages/my-flight/my-flight.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
 
 const routes: Routes = [
-{ path: '', redirectTo: '/bigscreen', pathMatch: 'full' },
-{ path: 'bigscreen', component: BigscreenComponent },
-{ path: 'app', component: PwaComponent },
-{ path: 'my', component: MyFlightComponent }
+  { path: '', redirectTo: '/bigscreen', pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'bigscreen', component: BigscreenComponent },
+  { path: 'app', component: PwaComponent },
+  { path: 'my', component: MyFlightComponent }
 ];
 
 @NgModule({
