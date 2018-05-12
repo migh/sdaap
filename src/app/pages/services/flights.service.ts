@@ -18,7 +18,7 @@ const flights: Flight[] = [
     flight: 1028,
     time: new Date('2018-5-10T23:58:31.187-06:00'),
     gate: 'G12',
-    status: FligthStatus.ONTIME,
+    status: FligthStatus.CANCELED,
     direction: Direction.ARRIVALS
   },
   {
@@ -27,7 +27,7 @@ const flights: Flight[] = [
     flight: 1028,
     time: new Date('2018-5-10T23:58:31.187-06:00'),
     gate: 'G12',
-    status: FligthStatus.ONTIME,
+    status: FligthStatus.DELAYED,
     direction: Direction.ARRIVALS
   },
   {
@@ -36,7 +36,7 @@ const flights: Flight[] = [
     flight: 1028,
     time: new Date('2018-5-10T23:58:31.187-06:00'),
     gate: 'G12',
-    status: FligthStatus.ONTIME,
+    status: FligthStatus.ATGATE,
     direction: Direction.ARRIVALS
   },
   {
@@ -45,7 +45,25 @@ const flights: Flight[] = [
     flight: 1028,
     time: new Date('2018-5-10T23:58:31.187-06:00'),
     gate: 'G12',
-    status: FligthStatus.ONTIME,
+    status: FligthStatus.INRANGE,
+    direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ARRIVED,
+    direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.BOARDING,
     direction: Direction.ARRIVALS
   }
 ];

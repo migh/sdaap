@@ -13,9 +13,9 @@
       <clr-dg-cell>{{ flight.location }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.carrier }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.flight }}</clr-dg-cell>
-      <clr-dg-cell>{{ flight.time }}</clr-dg-cell>
+      <clr-dg-cell>{{ flight.time | date: 'hh:mm aaa'}}</clr-dg-cell>
       <clr-dg-cell>{{ flight.gate }}</clr-dg-cell>
-      <clr-dg-cell><app-label text="{{ flight.status }}"></app-label></clr-dg-cell>
+      <clr-dg-cell><app-label status="{{ flight.status }}"></app-label></clr-dg-cell>
     </clr-dg-row>
   </clr-datagrid>
 </div>

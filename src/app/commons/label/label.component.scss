@@ -1,3 +1,18 @@
 .label {
   background-color: #E1F1F6;
+  &.positive {
+    background-color: #DFF0D0;
+    border-color: #318700;
+    color: #318700;
+  }
+  &.negative {
+    background-color: #FFF0EE;
+    border-color: #E62700;
+    color: #E62700;
+  }
+  &.neutral {
+    background-color: #FFFCE8;
+    border-color: #EDB200;
+    color: #EDB200;
+  }
 }

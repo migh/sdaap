@@ -23,7 +23,8 @@ export enum FligthStatus {
   DELAYED = 'Delayed',
   ATGATE = 'At gate',
   INRANGE = 'In range',
-  BOARDING = 'Boarding'
+  BOARDING = 'Boarding',
+  ARRIVED = 'Arrived'
 }
 
 export enum Direction {
