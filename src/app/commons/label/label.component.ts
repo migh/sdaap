@@ -1,10 +1,10 @@
 import { Component, OnInit, Input } from '@angular/core';
 
-import { FligthStatus } from '../flight';
+import { Flight, FligthStatus } from '../flight';
 
-const positive = [FligthStatus.ONTIME, FligthStatus.ARRIVED, FligthStatus.BOARDING];
-const negative = [FligthStatus.CANCELED, FligthStatus.DELAYED];
-const neutral = [FligthStatus.ATGATE, FligthStatus.INRANGE];
+const positive = Flight.getPositiveStatuses();
+const neutral = Flight.getNeutralStatuses();
+const negative = Flight.getNegativeStatuses();
 
 @Component({
   selector: 'app-label',

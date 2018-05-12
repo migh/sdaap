@@ -8,6 +8,15 @@ export class Flight {
     status: 'Status',
     direction: 'Direction',
   };
+  static getPositiveStatuses(): FligthStatus[] {
+    return [FligthStatus.ONTIME, FligthStatus.ARRIVED, FligthStatus.BOARDING];
+  };
+  static getNeutralStatuses(): FligthStatus[] {
+    return [FligthStatus.ATGATE, FligthStatus.INRANGE];
+  };
+  static getNegativeStatuses(): FligthStatus[] {
+    return [FligthStatus.CANCELED, FligthStatus.DELAYED];
+  };
   location: string;
   carrier: string;
   flight: number;
