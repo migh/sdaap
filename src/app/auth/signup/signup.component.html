@@ -1,0 +1,40 @@
+<section>
+  <div class="row" fxLayout="column" fxLayoutAlign="center center">
+    <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-header" fxLayoutAlign="center">
+          Signup
+        </div>
+        <form [formGroup]="signupForm" (ngSubmit)="onSubmit()">
+          <section class="form-block signup-form">
+            <div class="card-block">
+              <div class="form-group">
+                <label>User</label>
+                <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="signupForm.get('email').invalid
+                    && (signupForm.get('email').dirty || signupForm.get('email').touched)">
+                  <input type="text" formControlName="email">
+                  <span class="tooltip-content">
+                    Email is required
+                  </span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="signupForm.get('password').invalid
+                    && (signupForm.get('password').dirty || signupForm.get('email').touched)">
+                  <input type="password" formControlName="password">
+                  <span class="tooltip-content">
+                    Email is required
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="card-footer" fxLayoutAlign="center">
+              <button class="btn btn-sm btn-link" type="submit" [disabled]="signupForm.invalid">Signup</button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
