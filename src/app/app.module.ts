@@ -6,6 +6,8 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { PagesModule } from './pages/pages.module';
+import { CommonsModule } from './commons/commons.module';
 
 @NgModule({
   declarations: [
@@ -15,7 +17,9 @@ import { environment } from '../environments/environment';
     BrowserModule,
     ClarityModule,
     AppRoutingModule,
-    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production })
+    ServiceWorkerModule.register('/ngsw-worker.js', { enabled: environment.production }),
+    PagesModule,
+    CommonsModule
   ],
   providers: [],
   bootstrap: [AppComponent]
