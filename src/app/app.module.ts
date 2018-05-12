@@ -14,6 +14,7 @@ import { PagesModule } from './pages/pages.module';
 import { CommonsModule } from './commons/commons.module';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
+import { AuthService } from './auth/auth.service';
 
 @NgModule({
   declarations: [
@@ -34,7 +35,7 @@ import { SignupComponent } from './auth/signup/signup.component';
     FormsModule,
     ReactiveFormsModule
   ],
-  providers: [],
+  providers: [AuthService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }
