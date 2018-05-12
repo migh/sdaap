@@ -1,5 +1,5 @@
 import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
+import { Routes, RouterModule, Resolve } from '@angular/router';
 
 import { BigscreenComponent } from './pages/bigscreen/bigscreen.component';
 import { PwaComponent } from './pages/pwa/pwa.component';
