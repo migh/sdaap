@@ -4,16 +4,22 @@ import { Routes, RouterModule, Resolve } from '@angular/router';
 import { BigscreenComponent } from './pages/bigscreen/bigscreen.component';
 import { PwaComponent } from './pages/pwa/pwa.component';
 import { MyFlightComponent } from './pages/my-flight/my-flight.component';
+import { SignupComponent } from './auth/signup/signup.component';
+import { LoginComponent } from './auth/login/login.component';
+import { AuthGuard } from './auth/auth.guard';
 
 const routes: Routes = [
-{ path: '', redirectTo: '/bigscreen', pathMatch: 'full' },
-{ path: 'bigscreen', component: BigscreenComponent },
-{ path: 'app', component: PwaComponent },
-{ path: 'my', component: MyFlightComponent }
+  { path: '', redirectTo: '/bigscreen', pathMatch: 'full' },
+  { path: 'signup', component: SignupComponent },
+  { path: 'login', component: LoginComponent },
+  { path: 'bigscreen', component: BigscreenComponent },
+  { path: 'app', component: PwaComponent },
+  { path: 'my', component: MyFlightComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
+  providers: [AuthGuard]
 })
 export class AppRoutingModule { }
