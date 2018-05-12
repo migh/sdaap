@@ -1,3 +1,40 @@
-<p>
-  login works!
-</p>
+<section>
+  <div class="row" fxLayout="column" fxLayoutAlign="center center">
+    <div class="col-lg-5 col-md-8 col-sm-12 col-xs-12">
+      <div class="card">
+        <div class="card-header" fxLayoutAlign="center">
+          Login
+        </div>
+        <form [formGroup]="loginForm" (ngSubmit)="onSubmit()">
+          <section class="form-block login-form">
+            <div class="card-block">
+              <div class="form-group">
+                <label>Email</label>
+                <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="loginForm.get('email').invalid
+                      && (loginForm.get('email').dirty || loginForm.get('email').touched)">
+                  <input type="text" formControlName="email">
+                  <span class="tooltip-content">
+                    Email is required
+                  </span>
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Password</label>
+                <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="loginForm.get('password').invalid
+                      && (loginForm.get('password').dirty || loginForm.get('email').touched)">
+                  <input type="password" formControlName="password">
+                  <span class="tooltip-content">
+                    Enter Password
+                  </span>
+                </label>
+              </div>
+            </div>
+            <div class="card-footer" fxLayoutAlign="center">
+              <button class="btn btn-sm btn-link" type="submit" [disabled]="loginForm.invalid">Login</button>
+            </div>
+          </section>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
