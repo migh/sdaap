@@ -9,7 +9,7 @@
           <section class="form-block signup-form">
             <div class="card-block">
               <div class="form-group">
-                <label>User</label>
+                <label>Email</label>
                 <label aria-haspopup="true" role="tooltip" class="tooltip tooltip-validation tooltip-sm" [class.invalid]="signupForm.get('email').invalid
                     && (signupForm.get('email').dirty || signupForm.get('email').touched)">
                   <input type="text" formControlName="email">
@@ -24,7 +24,7 @@
                     && (signupForm.get('password').dirty || signupForm.get('email').touched)">
                   <input type="password" formControlName="password">
                   <span class="tooltip-content">
-                    Email is required
+                    Enter Password
                   </span>
                 </label>
               </div>
