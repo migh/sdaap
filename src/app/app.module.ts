@@ -3,6 +3,7 @@ import { NgModule } from '@angular/core';
 import { ClarityModule } from '@clr/angular';
 import { AngularFireModule } from 'angularfire2';
 import { AngularFirestoreModule } from 'angularfire2/firestore';
+import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
@@ -33,7 +34,8 @@ import { AuthService } from './auth/auth.service';
     AngularFireModule.initializeApp(environment.firebase),
     AngularFirestoreModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    AngularFireAuthModule
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]
