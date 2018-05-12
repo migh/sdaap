@@ -5,6 +5,7 @@ import { ClarityModule } from '@clr/angular';
 import { FlightsRowComponent } from './flights-row/flights-row.component';
 import { FlightsListComponent } from './flights-list/flights-list.component';
 import { SplashMessageComponent } from './splash-message/splash-message.component';
+import { LabelComponent } from './label/label.component';
 
 @NgModule({
   imports: [
@@ -15,6 +16,6 @@ import { SplashMessageComponent } from './splash-message/splash-message.componen
     FlightsRowComponent,
     FlightsListComponent
   ],
-  declarations: [FlightsRowComponent, FlightsListComponent, SplashMessageComponent]
+  declarations: [FlightsRowComponent, FlightsListComponent, SplashMessageComponent, LabelComponent]
 })
 export class CommonsModule { }

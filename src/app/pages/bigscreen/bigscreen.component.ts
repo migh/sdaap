@@ -15,6 +15,7 @@ export class BigscreenComponent implements OnInit {
   constructor(fligths: FlightsService) {
     this.arrivals = fligths.getArrivals();
     this.departures = fligths.getDepartures();
+    // this.isFullScreen = (<any>window).fullScreen;
   }
 
   ngOnInit() {

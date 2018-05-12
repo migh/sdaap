@@ -1,0 +1,18 @@
+/**********
+ * Table
+ * Use the table styles wherever you need to present static data in a tabular format.
+ *
+ * Usage:
+ * - ../data/_tables.clarity.scss
+ * - ../data/datagrid/_datagrid.clarity.scss
+ */
+$clr-thead-bgcolor: rgba(0, 0, 0, 0.15);
+$clr-table-bgcolor: transparent;
+$clr-datagrid-row-hover: transparent;
+$clr-table-font-color: #FFFFFF;
+$clr-table-border-color: #FFFFFF;
+$clr-table-header-border-bottom-color: $clr-table-border-color;
+$clr-table-footer-border-top-color: $clr-table-border-color;
+$clr-tablerow-bordercolor: $clr-table-border-color;
+$clr-table-bordercolor: $clr-table-border-color;
+$clr-table-borderstyle: $clr-table-borderwidth solid $clr-table-border-color;

@@ -11,6 +11,42 @@ const flights: Flight[] = [
     gate: 'G12',
     status: FligthStatus.ONTIME,
     direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ONTIME,
+    direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ONTIME,
+    direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ONTIME,
+    direction: Direction.ARRIVALS
+  },
+  {
+    location: 'Mexico City',
+    carrier: 'Aeromig',
+    flight: 1028,
+    time: new Date('2018-5-10T23:58:31.187-06:00'),
+    gate: 'G12',
+    status: FligthStatus.ONTIME,
+    direction: Direction.ARRIVALS
   }
 ];
 

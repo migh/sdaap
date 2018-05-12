@@ -1,0 +1,15 @@
+.flights-list {
+  // Not sure why it does not work
+  .datagrid-head .datagrid-row.datagrid-row-flex {
+    background-color: rgba(0, 0, 0, 0.15);
+  }
+
+  .datagrid-row {
+    &.datagrid-row-odd {
+      background-color: rgba(0, 0, 0, 0.15);
+    }
+    &.datagrid-row-even {
+      background-color: rgba(255, 255, 255, 0.15);
+    }
+  }
+}
