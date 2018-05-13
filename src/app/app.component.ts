@@ -25,20 +25,11 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit() {
-<<<<<<< HEAD
     const rezizeObs: Observable<any> = Observable.fromEvent(this.window, 'resize').throttleTime(1500);
     this.authSubscription = this.authService.authChange.subscribe(authStatus => {
       this.isAuth = authStatus;
     });
     rezizeObs.subscribe(ev => {
-=======
-    const rezizeObs: Observable<any> = Observable.fromEvent(this.window,'resize').throttleTime(1500);
-    this.authService.initAuthListener();
-    this.authSubscription = this.authService.authChange.subscribe( authStatus => {
-      this.isAuth = authStatus;
-    });
-    rezizeObs.subscribe( ev => {
->>>>>>> e91e27cf49aac172bba586e9ca95bfbdbfec927f
       this.updateUiState();
     });
   }
