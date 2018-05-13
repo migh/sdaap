@@ -9,8 +9,14 @@ import { Flight, FligthStatus } from '../flight';
 })
 export class FlightsListComponent implements OnInit {
   @Input() source: Flight[];
+  @Input() rowClickHandler: Function;
+  @Input() paginated: boolean;
 
-  constructor() { }
+  constructor() {}
+
+  onClick(item) {
+    if (this.rowClickHandler) this.rowClickHandler(item);
+  }
 
   ngOnInit() {
     const fieldIds = Object.keys(Flight.fieldNames);

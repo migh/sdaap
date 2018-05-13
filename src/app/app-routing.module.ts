@@ -26,7 +26,8 @@ const routes: Routes = [
   { path: 'login', component: LoginComponent },
   { path: 'bigscreen', component: BigscreenComponent, resolve: { refreshInterval: RefreshIntervalResolver }},
   { path: 'app', component: PwaComponent },
-  { path: 'my', component: MyFlightComponent, canActivate: [AuthGuard] }
+  { path: 'my', component: MyFlightComponent }
+  // { path: 'my', component: MyFlightComponent, canActivate: [AuthGuard] }
 ];
 
 @NgModule({

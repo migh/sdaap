@@ -21,7 +21,7 @@ export class AuthService {
         this.router.navigate(['/my']);
       } else {
         this.authChange.next(false);
-        this.router.navigate(['/bigscreen']);
+        // this.router.navigate(['/bigscreen']);
         this.isAuthenticated = false;
       }
     })
