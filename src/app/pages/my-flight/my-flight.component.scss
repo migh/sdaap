@@ -1,0 +1,17 @@
+.flight-number {
+  width: 100%;
+  text-align: center;
+  text-decoration: underline;
+}
+
+.carrier-name {
+  width: 100%;
+  text-align: center;
+}
+
+.flight-actions {
+  list-style: none outside none;
+  li {
+    margin: .4rem auto;
+  }
+}
