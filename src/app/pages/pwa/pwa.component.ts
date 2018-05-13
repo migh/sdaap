@@ -74,12 +74,10 @@ export class PwaComponent implements OnInit, OnDestroy {
   }
 
   arrivalsFilter() {
-    console.log('arrivals click');
     this.source = this.arrivals;
   }
 
   departuresFilter() {
-    console.log('deaprture click');
     this.source = this.departures;
   }
 }
