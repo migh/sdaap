@@ -4,6 +4,7 @@ import { Observable, Subscription } from 'rxjs/Rx';
 
 import { Flight } from '../../commons/flight';
 import { FlightsService } from '../services/flights.service';
+import { LocalStorageService } from '../services/local-storage.service';
 import { RESET_FLIGHT, SELECT_FLIGHT } from '../../commons/reducers/flight.reducer';
 
 interface PWAState {
@@ -25,8 +26,13 @@ export class PwaComponent implements OnInit, OnDestroy {
   flightPoller: Subscription;
   currentFlight: Flight;
   modalFlight: Flight;
+  openModal: boolean;
 
-  constructor(fligths: FlightsService, private store: Store<PWAState>) {
+  constructor(
+    private fligths: FlightsService,
+    private store: Store<PWAState>,
+    private ls: LocalStorageService
+  ) {
     this.flight$ = store.pipe(select('flight'));
     this.arrivals = fligths.getArrivals();
     this.departures = fligths.getDepartures();
@@ -40,7 +46,7 @@ export class PwaComponent implements OnInit, OnDestroy {
         this.modalFlight = flight;
         this.flightSelectionModal = true;
       } else {
-        this.store.dispatch({ type: RESET_FLIGHT });
+        this.clearFlightSelection();
       }
     };
   }
@@ -49,19 +55,38 @@ export class PwaComponent implements OnInit, OnDestroy {
     this.flightSelectionModal = false;
   }
 
+  clearFlightSelection() {
+    this.store.dispatch({ type: RESET_FLIGHT });
+    this.ls.delete('flight');
+  }
+
   confirmFlightSelection() {
-    this.store.dispatch({ type: SELECT_FLIGHT, payload: this.modalFlight });
+    const flight = this.modalFlight;
+    this.openModal = true;
+    this.store.dispatch({ type: SELECT_FLIGHT, payload: flight });
+    this.ls.save('flight', flight);
     this.flightSelectionModal = false;
+  }
+
+  checkLocalStorage() {
+    const flight = this.ls.load('flight');
+    if (flight) {
+      this.store.dispatch({ type: SELECT_FLIGHT, payload: flight });
+    }
   }
 
   ngOnInit() {
     this.source = (this.arrivals).concat(this.departures);
+    this.checkLocalStorage();
 
     this.flightPoller = this.flight$.subscribe(currentFlight => {
       if (currentFlight && currentFlight.flight) {
         this.flightAvailable = true;
         this.currentFlight = currentFlight;
-        this.flightSelectionModal = true;
+        if (this.openModal) {
+          this.flightSelectionModal = true;
+          this.openModal = false;
+        }
       } else {
         this.flightAvailable = false;
         this.currentFlight = null;

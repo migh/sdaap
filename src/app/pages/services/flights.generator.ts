@@ -31,7 +31,7 @@ export class FlightsGenerator {
   }
 
   createGate(qty = 16) {
-    return 'G' + rand(qty);
+    return 'G' + rand(qty, 1);
   }
 
   // 900 * 1000 = fifteen minutes
