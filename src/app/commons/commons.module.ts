@@ -14,7 +14,8 @@ import { LabelComponent } from './label/label.component';
   ],
   exports: [
     FlightsRowComponent,
-    FlightsListComponent
+    FlightsListComponent,
+    SplashMessageComponent
   ],
   declarations: [FlightsRowComponent, FlightsListComponent, SplashMessageComponent, LabelComponent]
 })

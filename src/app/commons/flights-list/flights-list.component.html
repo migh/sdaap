@@ -8,7 +8,10 @@
     <clr-dg-column>Gate</clr-dg-column>
     <clr-dg-column>Status</clr-dg-column>
 
-    <clr-dg-row *ngFor="let flight of source; index as i; even as even" [ngClass]="{ 'datagrid-row-even': even, 'datagrid-row-odd': !even }">
+    <clr-dg-row
+      *clrDgItems="let flight of source; index as i; even as even"
+      [ngClass]="{ 'datagrid-row-even': even, 'datagrid-row-odd': !even }"
+      (click)="onClick(flight)">
       <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.location }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.carrier }}</clr-dg-cell>
@@ -17,5 +20,10 @@
       <clr-dg-cell>{{ flight.gate }}</clr-dg-cell>
       <clr-dg-cell><app-label status="{{ flight.status }}"></app-label></clr-dg-cell>
     </clr-dg-row>
+    <clr-dg-footer *ngIf="paginated">
+      <clr-dg-pagination #pagination [clrDgPageSize]="13">
+        {{pagination.firstItem + 1}} - {{pagination.lastItem + 1}} of {{pagination.totalItems}} fligths
+      </clr-dg-pagination>
+    </clr-dg-footer>
   </clr-datagrid>
 </div>

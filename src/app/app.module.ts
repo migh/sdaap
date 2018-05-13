@@ -6,6 +6,7 @@ import { AngularFirestoreModule } from 'angularfire2/firestore';
 import { AngularFireAuthModule } from 'angularfire2/auth';
 import { FlexLayoutModule } from '@angular/flex-layout';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { StoreModule } from '@ngrx/store';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
@@ -16,6 +17,8 @@ import { CommonsModule } from './commons/commons.module';
 import { LoginComponent } from './auth/login/login.component';
 import { SignupComponent } from './auth/signup/signup.component';
 import { AuthService } from './auth/auth.service';
+
+import { flightReducer } from './commons/reducers/flight.reducer';
 
 @NgModule({
   declarations: [
@@ -35,7 +38,8 @@ import { AuthService } from './auth/auth.service';
     AngularFirestoreModule,
     FormsModule,
     ReactiveFormsModule,
-    AngularFireAuthModule
+    AngularFireAuthModule,
+    StoreModule.forRoot({ flight: flightReducer })
   ],
   providers: [AuthService],
   bootstrap: [AppComponent]

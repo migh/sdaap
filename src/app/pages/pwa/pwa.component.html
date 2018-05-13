@@ -1,57 +1,16 @@
 <div id="app">
   <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
+      <h1>Vuelo: {{ (flight$ | async)?.flight }}</h1>
       <div class="btn-group">
-          <button class="btn">Arrivals</button>
+          <button class="btn" (click)="testClick()">Arrivals</button>
           <button class="btn">Departures</button>
       </div>
     </div>
   </div>
   <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
-      <form class="compact">
-        <legend>Search:</legend>
-        <section class="form-block">
-          <div class="form-group">
-            <label for="searchbox">
-              <input type="text" id="searchbox" placeholder="Search by flight number, carrier, destination.">
-            </label>
-          </div>
-        </section>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 offset-md-3">
-      <form class="compact">
-        <legend>Filter:</legend>
-        <section class="form-block">
-          <div class="form-group">
-            <label for="searchbox">
-              <input type="text" id="searchbox" placeholder="Search by flight number">
-            </label>
-          </div>
-        </section>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 offset-md-3">
-      <form class="compact">
-        <legend>Sort:</legend>
-        <section class="form-block">
-          <div class="form-group">
-            <label for="searchbox">
-              <input type="text" id="searchbox" placeholder="Search by flight number">
-            </label>
-          </div>
-        </section>
-      </form>
-    </div>
-  </div>
-  <div class="row">
-    <div class="col-xs-12 col-md-6 offset-md-3">
-      <app-flights-list [source]="arrivals"></app-flights-list>
+      <app-flights-list [source]="source" [rowClickHandler]="flightSelection()"></app-flights-list>
     </div>
   </div>
 </div>

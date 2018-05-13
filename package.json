@@ -27,6 +27,7 @@
     "@clr/angular": "^0.11.17",
     "@clr/icons": "^0.11.17",
     "@clr/ui": "^0.11.17",
+    "@ngrx/store": "^5.2.0",
     "@webcomponents/custom-elements": "^1.0.0",
     "angular2": "^2.0.0-beta.21",
     "angularfire2": "^5.0.0-rc.7",
