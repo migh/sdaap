@@ -12,7 +12,7 @@ import { AuthGuard } from './auth/auth.guard';
 const BigscreenRefreshInterval = 3000;
 
 @Injectable()
-class RefreshIntervalResolver implements Resolve<number> {
+export class RefreshIntervalResolver implements Resolve<number> {
   constructor() { }
 
   resolve(): Promise<number> {
