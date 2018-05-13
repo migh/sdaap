@@ -50,14 +50,14 @@ export class PwaComponent implements OnInit, OnDestroy {
   }
 
   confirmFlightSelection() {
-    this.store.dispatch({ type: SELECT_FLIGHT, payload: this.modalFlight});
+    this.store.dispatch({ type: SELECT_FLIGHT, payload: this.modalFlight });
     this.flightSelectionModal = false;
   }
 
   ngOnInit() {
     this.source = (this.arrivals).concat(this.departures);
 
-    this.flightPoller = this.flight$.subscribe( currentFlight => {
+    this.flightPoller = this.flight$.subscribe(currentFlight => {
       if (currentFlight && currentFlight.flight) {
         this.flightAvailable = true;
         this.currentFlight = currentFlight;
@@ -73,4 +73,13 @@ export class PwaComponent implements OnInit, OnDestroy {
     this.flightPoller.unsubscribe();
   }
 
+  arrivalsFilter() {
+    console.log('arrivals click');
+    this.source = this.arrivals;
+  }
+
+  departuresFilter() {
+    console.log('deaprture click');
+    this.source = this.departures;
+  }
 }
