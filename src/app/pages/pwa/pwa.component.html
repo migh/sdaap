@@ -1,9 +1,34 @@
 <div id="app">
   <div class="row">
+    <div class="col-xs-12 col-md-6 offset-md-3" *ngIf="flightAvailable">
+      <div class="card current-flight">
+        <div class="card-block">
+          <div class="card-title">
+            <h3>We are glad you've selected a flight.</h3>
+          </div>
+          <div class="card-text">
+            <p>Your current flight is:<br/>
+              <strong>{{ currentFlight.flight }} - {{ (currentFlight.direction === 'arrivals') ? 'from' : 'to' }}
+              {{ currentFlight.location }} at {{ currentFlight.time | date: 'yyyy-MM-d hh:mm aaa'}}</strong>
+              <br/><br/>
+              We have made some arrangements to make your stay here as enjoyable as possible. You can now
+              save this site to your cellphone main screen for future online/offline access. In your panel
+              you can find places to go, discover available services and keep track of your schedule.
+            </p>
+
+            <a class="nav-link" routerLink="/my">
+              <button type="button" class="btn btn-success">Check it now!</button>
+            </a>
+
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="row">
     <div class="col-xs-12 col-md-6 offset-md-3">
-      <h1>Vuelo: {{ (flight$ | async)?.flight }}</h1>
       <div class="btn-group">
-          <button class="btn" (click)="testClick()">Arrivals</button>
+          <button class="btn">Arrivals</button>
           <button class="btn">Departures</button>
       </div>
     </div>
@@ -14,3 +39,28 @@
     </div>
   </div>
 </div>
+
+<clr-modal [(clrModalOpen)]="flightSelectionModal">
+    <h3 class="modal-title">Flight Selection</h3>
+    <div class="modal-body">
+      <div class="modal-expected-content" *ngIf="modalFlight">
+        <p>You have clicked flight number <strong>{{ modalFlight.flight }}</strong>. <br/>
+          It is {{ (modalFlight.direction === 'arrivals') ? 'arriving from' : 'departing to' }}
+          {{ modalFlight.location }} on <strong>{{ modalFlight.time | date: 'MMMM, d'}}</strong>
+          at <strong>{{ modalFlight.time | date: 'hh:mm aaa'}}</strong>.</p>
+        <p>Do you want to select this flight?</p>
+      </div>
+      <div class="modal-content-error" *ngIf="!modalFlight">
+        <p>We are sorry for the inconvenience but some error has ocurred.</p>
+      </div>
+    </div>
+    <div class="modal-footer">
+      <div class="modal-expected-content" *ngIf="modalFlight">
+        <button type="button" class="btn btn-outline" (click)="cancelFlightSelection()">Nope</button>
+        <button type="button" class="btn btn-primary" (click)="confirmFlightSelection()">Sure</button>
+      </div>
+      <div class="modal-content-error" *ngIf="!modalFlight">
+        <button type="button" class="btn btn-outline" (click)="cancelFlightSelection()">Close</button>
+      </div>
+    </div>
+</clr-modal>

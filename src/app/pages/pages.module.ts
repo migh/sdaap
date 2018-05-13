@@ -4,11 +4,13 @@ import { BigscreenComponent } from './bigscreen/bigscreen.component';
 import { PwaComponent } from './pwa/pwa.component';
 import { MyFlightComponent } from './my-flight/my-flight.component';
 import { CommonsModule } from '../commons/commons.module';
+import { ClarityModule } from '@clr/angular';
 
 @NgModule({
   imports: [
     CommonModule,
-    CommonsModule
+    CommonsModule,
+    ClarityModule
   ],
   declarations: [BigscreenComponent, PwaComponent, MyFlightComponent]
 })

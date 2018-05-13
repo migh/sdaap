@@ -1,3 +1,14 @@
-* {
-  color: #FFFFFF;
+.current-flight {
+  .card-title {
+    color: #000000;
+  }
+  .card-text {
+    color: #000000;
+  }
+}
+
+.datagrid-row-interactive {
+  &:hover {
+    color: red;
+  }
 }

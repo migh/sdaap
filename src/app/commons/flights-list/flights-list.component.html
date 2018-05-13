@@ -1,16 +1,16 @@
 <div class="flights-list">
   <clr-datagrid>
     <clr-dg-column>#</clr-dg-column>
-    <clr-dg-column>Destination</clr-dg-column>
-    <clr-dg-column>Carrier</clr-dg-column>
-    <clr-dg-column>Flight</clr-dg-column>
-    <clr-dg-column>Time</clr-dg-column>
-    <clr-dg-column>Gate</clr-dg-column>
-    <clr-dg-column>Status</clr-dg-column>
+    <clr-dg-column [clrDgField]="'location'">Destination</clr-dg-column>
+    <clr-dg-column [clrDgField]="'carrier'">Carrier</clr-dg-column>
+    <clr-dg-column [clrDgField]="'flight'">Flight</clr-dg-column>
+    <clr-dg-column [clrDgField]="'time'">Time</clr-dg-column>
+    <clr-dg-column [clrDgField]="'gate'">Gate</clr-dg-column>
+    <clr-dg-column [clrDgField]="'status'">Status</clr-dg-column>
 
     <clr-dg-row
       *clrDgItems="let flight of source; index as i; even as even"
-      [ngClass]="{ 'datagrid-row-even': even, 'datagrid-row-odd': !even }"
+      [ngClass]="{ 'datagrid-row-even': even, 'datagrid-row-odd': !even, 'datagrid-row-interactive': rowClickHandler}"
       (click)="onClick(flight)">
       <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.location }}</clr-dg-cell>
