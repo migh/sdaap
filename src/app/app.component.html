@@ -18,12 +18,6 @@
       <a class="nav-link" routerLink="/my" *ngIf="isAuth">
         <span class="nav-text">My App</span>
       </a>
-      <a class="nav-link" routerLink="/app">
-        <span class="nav-text">PWA</span>
-      </a>
-      <a class="nav-link" routerLink="/bigscreen">
-        <span class="nav-text">Big Screen</span>
-      </a>
     </div>
     <div class="header-actions">
       <a class="nav-link" (click)="onLogout()" *ngIf="isAuth">

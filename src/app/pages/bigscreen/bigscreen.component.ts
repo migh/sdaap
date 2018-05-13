@@ -1,4 +1,6 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
+import { ActivatedRoute } from '@angular/router';
+import { Observable } from 'rxjs/Rx';
 
 import { Flight } from '../../commons/flight';
 import { FlightsService } from '../services/flights.service';
@@ -11,14 +13,28 @@ import { FlightsService } from '../services/flights.service';
 export class BigscreenComponent implements OnInit {
   arrivals: Flight[];
   departures: Flight[];
+  refreshInterval: number;
+  refresh: Observable<number>;
 
-  constructor(fligths: FlightsService) {
+  constructor(
+    route: ActivatedRoute,
+    fligths: FlightsService
+  ) {
     this.arrivals = fligths.getArrivals();
     this.departures = fligths.getDepartures();
-    // this.isFullScreen = (<any>window).fullScreen;
+    route.data.subscribe(this.getRouteData.bind(this));
+  }
+
+  getRouteData(data) {
+    this.refreshInterval = data.refreshInterval || 5000;
   }
 
   ngOnInit() {
+    this.refresh = Observable.interval(this.refreshInterval);
+
+    this.refresh.subscribe(ev => {
+      console.log(ev);
+    });
   }
 
 }

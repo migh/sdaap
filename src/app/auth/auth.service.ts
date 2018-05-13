@@ -13,24 +13,11 @@ export class AuthService {
 
   constructor(private router: Router, private afAuth: AngularFireAuth) { }
 
-  initAuthListener() {
-    this.afAuth.authState.subscribe(user => {
-      if (user) {
-        this.isAuthenticated = true;
-        this.authChange.next(true);
-        this.router.navigate(['/my']);
-      } else {
-        this.authChange.next(false);
-        this.router.navigate(['/bigscreen']);
-        this.isAuthenticated = false;
-      }
-    })
-  }
-
   registerUser(authData: AuthData) {
     this.afAuth.auth
       .createUserWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
+        this.authSuccessfully();
       })
       .catch(error => {
         console.log(error);
@@ -41,7 +28,7 @@ export class AuthService {
     this.afAuth.auth
       .signInWithEmailAndPassword(authData.email, authData.password)
       .then(result => {
-        console.log(result);
+        this.authSuccessfully();
       })
       .catch(error => {
         console.log(error);
@@ -50,10 +37,19 @@ export class AuthService {
 
   logout() {
     this.afAuth.auth.signOut();
+    this.authChange.next(false);
+    this.router.navigate(['/login']);
+    this.isAuthenticated = false;
   }
 
   isAuth() {
     return this.isAuthenticated;
+  }
+
+  private authSuccessfully() {
+    this.isAuthenticated = true;
+    this.authChange.next(true);
+    this.router.navigate(['/app']);
   }
 
 }
