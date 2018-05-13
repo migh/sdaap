@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, Input } from '@angular/core';
 
 @Component({
   selector: 'app-splash-message',
@@ -6,6 +6,7 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./splash-message.component.scss']
 })
 export class SplashMessageComponent implements OnInit {
+  @Input() text: string;
 
   constructor() { }
 
