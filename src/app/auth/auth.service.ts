@@ -6,12 +6,32 @@ import { AngularFireAuth } from 'angularfire2/auth';
 import { User } from './user.model';
 import { AuthData } from './auth-data.model';
 
+export interface AuthChange {
+  logged: boolean,
+  user: any
+}
+
 @Injectable()
 export class AuthService {
+  authChanges = new Subject<AuthChange>();
   authChange = new Subject<boolean>();
   private isAuthenticated = false;
 
-  constructor(private router: Router, private afAuth: AngularFireAuth) { }
+  constructor(private router: Router, private afAuth: AngularFireAuth) {
+    this.afAuth.auth.onAuthStateChanged( (user) => {
+      if (user) {
+        this.authChanges.next({
+          user,
+          logged: true
+        });
+      } else {
+        this.authChanges.next({
+          user: null,
+          logged: false
+        });
+      }
+    });
+  }
 
   registerUser(authData: AuthData) {
     this.afAuth.auth
@@ -26,9 +46,12 @@ export class AuthService {
 
   login(authData: AuthData) {
     this.afAuth.auth
-      .signInWithEmailAndPassword(authData.email, authData.password)
+      .setPersistence('local')
+      .then( () => this.afAuth.auth.signInWithEmailAndPassword(authData.email, authData.password) )
       .then(result => {
         this.authSuccessfully();
+        console.log(result.user.getIdToken());
+        console.log(result.user.uid);
       })
       .catch(error => {
         console.log(error);

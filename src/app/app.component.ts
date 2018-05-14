@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit, NgZone } from '@angular/core';
 import { Router } from '@angular/router';
 import { Observable } from 'rxjs/Rx';
 import { AuthService } from './auth/auth.service';
@@ -18,19 +18,29 @@ export class AppComponent implements OnInit {
   authSubscription: Subscription;
   isAuth: boolean;
 
-  constructor(router: Router, private authService: AuthService) {
+  constructor(router: Router, private authService: AuthService, private _ngZone: NgZone) {
+    this.isAuth = false;
     this.window = (<any>window);
     this.router = router;
     this.updateUiState();
+    this.authService.authChanges.subscribe( this.updateAuthState.bind(this) );
   }
 
   ngOnInit() {
     const rezizeObs: Observable<any> = Observable.fromEvent(this.window, 'resize').throttleTime(1500);
-    this.authSubscription = this.authService.authChange.subscribe(authStatus => {
-      this.isAuth = authStatus;
-    });
     rezizeObs.subscribe(ev => {
       this.updateUiState();
+    });
+  }
+
+  updateAuthState( state ) {
+    this._ngZone.run(() => {
+      if (state.logged) {
+        this.isAuth = true;
+        // this.currentUser = state.user;
+      } else {
+        this.isAuth = false;
+      }
     });
   }
 
