@@ -12,7 +12,7 @@
       *clrDgItems="let flight of source; index as i; even as even"
       [ngClass]="{ 'datagrid-row-even': even, 'datagrid-row-odd': !even, 'datagrid-row-interactive': rowClickHandler}"
       (click)="onClick(flight)">
-      <clr-dg-cell>{{ i + 1 }}</clr-dg-cell>
+      <clr-dg-cell>{{ offset + (i + 1)  }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.location }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.carrier }}</clr-dg-cell>
       <clr-dg-cell>{{ flight.flight }}</clr-dg-cell>

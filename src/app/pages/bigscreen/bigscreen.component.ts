@@ -14,7 +14,8 @@ export class BigscreenComponent implements OnInit {
   arrivals: Flight[];
   departures: Flight[];
   refreshInterval: number;
-  refresh: Observable<number>;
+  ticker: Observable<number>;
+  user: any;
 
   constructor(
     route: ActivatedRoute,
@@ -30,11 +31,7 @@ export class BigscreenComponent implements OnInit {
   }
 
   ngOnInit() {
-    this.refresh = Observable.interval(this.refreshInterval);
-
-    this.refresh.subscribe(ev => {
-      console.log(ev);
-    });
+    this.ticker = Observable.interval(this.refreshInterval);
   }
 
 }
